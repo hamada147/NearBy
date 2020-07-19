@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SQLite
 
 public class Venue: CodableEquatable {
     public let id, name: String
@@ -39,5 +40,19 @@ public class Venue: CodableEquatable {
         } else {
             return false
         }
+    }
+}
+
+public class VenueModel: CodableEquatable {
+    public let id, name, desc: String
+    
+    init(id: String, name: String, desc: String) {
+        self.id = id
+        self.name = name
+        self.desc = desc
+    }
+    
+    public static func == (lhs: VenueModel, rhs: VenueModel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.desc == rhs.desc
     }
 }
