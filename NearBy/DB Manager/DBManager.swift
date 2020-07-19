@@ -11,12 +11,12 @@ import SQLite
 
 class DBManager {
     
-    var database: Connection!
+    private var database: Connection!
     
-    let venuTable = Table("venue")
-    let id = Expression<String>("id")
-    let name = Expression<String>("name")
-    let desc = Expression<String>("desc")
+    private let venuTable = Table("venue")
+    private let id = Expression<String>("id")
+    private let name = Expression<String>("name")
+    private let desc = Expression<String>("desc")
     
     init() {
         let isdbInit = UserDefaultManager.shared.get(for: .dbInit, defaultValue: false)
@@ -51,7 +51,8 @@ class DBManager {
         
         do {
             try self.database.run(createVenuTable)
-            #if DEVELOPMENT
+            UserDefaultManager.shared.set(true, for: .dbInit)
+            #if DEBUG
             print("VENUE TABLE CREATED")
             #endif
         } catch {
@@ -63,11 +64,13 @@ class DBManager {
         let insertVenu = self.venuTable.insert(self.id <- id, self.name <- name, self.desc <- desc)
         do {
             try self.database.run(insertVenu)
-            #if DEVELOPMENT
+            #if DEBUG
             print("VENUE INSERTED")
             #endif
         } catch {
+            #if DEBUG
             print(error)
+            #endif
         }
     }
     

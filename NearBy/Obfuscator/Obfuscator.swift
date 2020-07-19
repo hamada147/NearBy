@@ -31,7 +31,7 @@ public class Obfuscator {
         for t in text.enumerated() {
             encrypted.append(t.element ^ cipher[t.offset % length])
         }
-        #if DEVELOPMENT
+        #if DEBUG
         print("Salt used: \(self.salt)\n")
         print("Swift Code:\n************")
         print("// Original \"\(string)\"")

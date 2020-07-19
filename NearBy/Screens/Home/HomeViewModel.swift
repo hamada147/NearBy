@@ -10,9 +10,46 @@ import Foundation
 
 class HomeViewModel: BaseViewModel {
     
-    func getVenus() {
-//        let request = VenuesExploreAPI(requestDTO: <#T##VenuesExploreRequest?#>, onSuccess: <#T##((VenuesExploreResponse?) -> Void)?##((VenuesExploreResponse?) -> Void)?##(VenuesExploreResponse?) -> Void#>, onAPIError: <#T##((BaseResponse<EmptyResponse>) -> Void)?##((BaseResponse<EmptyResponse>) -> Void)?##(BaseResponse<EmptyResponse>) -> Void#>, onConnectionError: <#T##((InAPPError) -> Void)?##((InAPPError) -> Void)?##(InAPPError) -> Void#>, onParsingError: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
-//        request.execute()
+    var venues: [VenueModel] = []
+    private var networkInProgress = false
+    
+    override init() {
+        self.venues = DBManager().getVenus()
     }
     
+    func getVenus(ll: String, onSuccess: @escaping ((Bool) -> Void), onError: ((InAPPError) -> Void)?) {
+        if self.networkInProgress {
+            return
+        }
+        self.networkInProgress = true
+        let requestDTO = VenuesExploreRequest(ll: ll)
+        let request = VenuesExploreAPI(requestDTO: requestDTO, onSuccess: { (response) in
+            self.networkInProgress = false
+            if let response = response {
+                response.response.groups.forEach { (group) in
+                    group.items.forEach { (groupItem) in
+                        let item = groupItem.venue
+                        let desc: String = groupItem.reasons.items.reduce("") { text, item in
+                            "\(text)\n\(item.summary)"
+                        }
+                        DBManager().insertNewVenu(id: item.id, name: item.name, desc: desc)
+                    }
+                }
+                self.venues = DBManager().getVenus()
+                onSuccess(true)
+            } else {
+                onSuccess(false)
+            }
+        }, onAPIError: { (errorResponse) in
+            self.networkInProgress = false
+            onError?(InAPPError(errorCode: -1, subErrorCode: -1, errorMessage: errorResponse.meta.errorDetail ?? ""))
+        }, onConnectionError: { (error) in
+            self.networkInProgress = false
+            onError?(error)
+        }, onParsingError: { (error) in
+            self.networkInProgress = false
+            onError?(InAPPError(errorCode: -1, subErrorCode: -1, errorMessage: error.localizedDescription))
+        })
+        request.execute()
+    }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class VenuesExploreAPI: BaseAPI<VenuesExploreRequest, VenuesExploreResponse, BaseResponse<EmptyResponse>> {
+public class VenuesExploreAPI: BaseAPI<VenuesExploreRequest, BaseResponse<VenuesExploreResponse>, BaseResponse<EmptyResponse>> {
     override var httpMethod: HTTPMethod { return .get }
     
     override var relativeApiPath: String {

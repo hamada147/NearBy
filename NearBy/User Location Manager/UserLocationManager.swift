@@ -75,11 +75,16 @@ class UserLocationManager: NSObject {
 extension UserLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        #if DEBUG
+        print("latitude: \(locValue.latitude), longitude: \(locValue.longitude)")
+        #endif
         self.delegate?.userLocationUpdate(latitude: locValue.latitude, longitude: locValue.longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        #if DEBUG
         print(error)
+        #endif
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -97,12 +102,16 @@ extension UserLocationManager: CLLocationManagerDelegate {
         case .restricted:
             break
         @unknown default:
+            #if DEBUG
             print("not handled CL Authorization Status \(status)")
+            #endif
             break
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
-        print(error ?? nil)
+        #if DEBUG
+        print(error)
+        #endif
     }
 }

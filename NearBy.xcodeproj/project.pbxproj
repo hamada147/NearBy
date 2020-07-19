@@ -22,7 +22,6 @@
 		B507871324C4C66F00BF2EFF /* SuggestedBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871224C4C66F00BF2EFF /* SuggestedBounds.swift */; };
 		B507871524C4C68000BF2EFF /* Ne.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871424C4C68000BF2EFF /* Ne.swift */; };
 		B507871724C4C68E00BF2EFF /* Warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871624C4C68E00BF2EFF /* Warning.swift */; };
-		B507871924C4C8B100BF2EFF /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871824C4C8B100BF2EFF /* BaseRequest.swift */; };
 		B507871E24C4C95800BF2EFF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871D24C4C95800BF2EFF /* BaseViewModel.swift */; };
 		B507872024C4C97300BF2EFF /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871F24C4C97300BF2EFF /* BaseUIViewController.swift */; };
 		B507872524C4CCB500BF2EFF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507872424C4CCB500BF2EFF /* HomeViewModel.swift */; };
@@ -32,6 +31,8 @@
 		B507873224C4D88600BF2EFF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B507873124C4D88600BF2EFF /* HomeViewController.xib */; };
 		B507873624C4DD9500BF2EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B507873524C4DD9500BF2EFF /* Main.storyboard */; };
 		B507873A24C4E74500BF2EFF /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507873924C4E74500BF2EFF /* DBManager.swift */; };
+		B507874124C4FBC700BF2EFF /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507873F24C4FBC700BF2EFF /* VenueTableViewCell.swift */; };
+		B507874224C4FBC700BF2EFF /* VenueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B507874024C4FBC700BF2EFF /* VenueTableViewCell.xib */; };
 		B58DDD9724C46AE200DA0E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DDD9624C46AE200DA0E34 /* AppDelegate.swift */; };
 		B58DDD9924C46AE200DA0E34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DDD9824C46AE200DA0E34 /* SceneDelegate.swift */; };
 		B58DDD9B24C46AE200DA0E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DDD9A24C46AE200DA0E34 /* ViewController.swift */; };
@@ -93,7 +94,6 @@
 		B507871224C4C66F00BF2EFF /* SuggestedBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedBounds.swift; sourceTree = "<group>"; };
 		B507871424C4C68000BF2EFF /* Ne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ne.swift; sourceTree = "<group>"; };
 		B507871624C4C68E00BF2EFF /* Warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warning.swift; sourceTree = "<group>"; };
-		B507871824C4C8B100BF2EFF /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		B507871D24C4C95800BF2EFF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B507871F24C4C97300BF2EFF /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		B507872424C4CCB500BF2EFF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +103,8 @@
 		B507873124C4D88600BF2EFF /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B507873524C4DD9500BF2EFF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B507873924C4E74500BF2EFF /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		B507873F24C4FBC700BF2EFF /* VenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
+		B507874024C4FBC700BF2EFF /* VenueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueTableViewCell.xib; sourceTree = "<group>"; };
 		B58DDD9324C46AE200DA0E34 /* NearBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58DDD9624C46AE200DA0E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58DDD9824C46AE200DA0E34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		B507872624C4CCB900BF2EFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B507873E24C4FBB000BF2EFF /* Cells */,
 				B507872724C4CCD300BF2EFF /* HomeViewController.swift */,
 				B507873124C4D88600BF2EFF /* HomeViewController.xib */,
 			);
@@ -261,6 +264,15 @@
 				B507873924C4E74500BF2EFF /* DBManager.swift */,
 			);
 			path = "DB Manager";
+			sourceTree = "<group>";
+		};
+		B507873E24C4FBB000BF2EFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B507873F24C4FBC700BF2EFF /* VenueTableViewCell.swift */,
+				B507874024C4FBC700BF2EFF /* VenueTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B58DDD8A24C46AE200DA0E34 = {
@@ -431,7 +443,6 @@
 			isa = PBXGroup;
 			children = (
 				B58DDDBC24C4718500DA0E34 /* BaseResponse.swift */,
-				B507871824C4C8B100BF2EFF /* BaseRequest.swift */,
 				B58DDDCA24C4763400DA0E34 /* InAPPError.swift */,
 				B58DDDE624C4BA5A00DA0E34 /* Meta.swift */,
 				B58DDDE824C4BA6D00DA0E34 /* EmptyResponse.swift */,
@@ -531,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B507874224C4FBC700BF2EFF /* VenueTableViewCell.xib in Resources */,
 				B58DDDA624C46AE200DA0E34 /* LaunchScreen.storyboard in Resources */,
 				B58DDDA324C46AE200DA0E34 /* Assets.xcassets in Resources */,
 				B507873224C4D88600BF2EFF /* HomeViewController.xib in Resources */,
@@ -629,7 +641,6 @@
 				B507870924C4C61800BF2EFF /* Category.swift in Sources */,
 				B58DDDD824C476EA00DA0E34 /* URLSessionRequestExecuter.swift in Sources */,
 				B58DDD9B24C46AE200DA0E34 /* ViewController.swift in Sources */,
-				B507871924C4C8B100BF2EFF /* BaseRequest.swift in Sources */,
 				B58DDDC224C473DE00DA0E34 /* Encodable+Dictionary.swift in Sources */,
 				B58DDDDE24C4772C00DA0E34 /* ParameterEncoder.swift in Sources */,
 				B58DDDE724C4BA5A00DA0E34 /* Meta.swift in Sources */,
@@ -659,6 +670,7 @@
 				B58DDDC024C473CC00DA0E34 /* APIProtocol.swift in Sources */,
 				B507873A24C4E74500BF2EFF /* DBManager.swift in Sources */,
 				B507870124C4C5DC00BF2EFF /* GroupItem.swift in Sources */,
+				B507874124C4FBC700BF2EFF /* VenueTableViewCell.swift in Sources */,
 				B507870F24C4C65300BF2EFF /* LabeledLatLng.swift in Sources */,
 				B58DDDBD24C4718500DA0E34 /* BaseResponse.swift in Sources */,
 				B507870324C4C5EC00BF2EFF /* Reasons.swift in Sources */,

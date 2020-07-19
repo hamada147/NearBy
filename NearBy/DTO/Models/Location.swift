@@ -9,15 +9,15 @@
 import Foundation
 
 public class Location: CodableEquatable {
-    public let address, crossStreet: String
+    public let address, crossStreet: String?
     public let lat, lng: Double
     public let labeledLatLngs: [LabeledLatLng]
     public let distance: Int
-    public let postalCode, cc, city, state: String
-    public let country: String
+    public let postalCode, cc, city, state: String?
+    public let country: String?
     public let formattedAddress: [String]
 
-    public init(address: String, crossStreet: String, lat: Double, lng: Double, labeledLatLngs: [LabeledLatLng], distance: Int, postalCode: String, cc: String, city: String, state: String, country: String, formattedAddress: [String]) {
+    public init(address: String?, crossStreet: String?, lat: Double, lng: Double, labeledLatLngs: [LabeledLatLng], distance: Int, postalCode: String?, cc: String?, city: String?, state: String?, country: String?, formattedAddress: [String]) {
         self.address = address
         self.crossStreet = crossStreet
         self.lat = lat
