@@ -7,6 +7,7 @@ target 'NearBy' do
 
   # Pods for NearBy
   pod 'SQLite.swift', '~> 0.12.0'
+  pod 'Toast-Swift', '~> 5.0.1'
 
   target 'NearByTests' do
     inherit! :search_paths
