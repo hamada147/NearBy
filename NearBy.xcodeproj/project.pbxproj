@@ -25,7 +25,6 @@
 		B507871924C4C8B100BF2EFF /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871824C4C8B100BF2EFF /* BaseRequest.swift */; };
 		B507871E24C4C95800BF2EFF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871D24C4C95800BF2EFF /* BaseViewModel.swift */; };
 		B507872024C4C97300BF2EFF /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507871F24C4C97300BF2EFF /* BaseUIViewController.swift */; };
-		B507872324C4CB2A00BF2EFF /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507872224C4CB2A00BF2EFF /* RouterManager.swift */; };
 		B507872524C4CCB500BF2EFF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507872424C4CCB500BF2EFF /* HomeViewModel.swift */; };
 		B507872924C4CCD300BF2EFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507872724C4CCD300BF2EFF /* HomeViewController.swift */; };
 		B507872D24C4CD7900BF2EFF /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507872C24C4CD7900BF2EFF /* UserDefaultManager.swift */; };
@@ -89,7 +88,6 @@
 		B507871824C4C8B100BF2EFF /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		B507871D24C4C95800BF2EFF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B507871F24C4C97300BF2EFF /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
-		B507872224C4CB2A00BF2EFF /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		B507872424C4CCB500BF2EFF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B507872724C4CCD300BF2EFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B507872C24C4CD7900BF2EFF /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
@@ -200,14 +198,6 @@
 			path = MVVM;
 			sourceTree = "<group>";
 		};
-		B507872124C4CB1E00BF2EFF /* Router Manager */ = {
-			isa = PBXGroup;
-			children = (
-				B507872224C4CB2A00BF2EFF /* RouterManager.swift */,
-			);
-			path = "Router Manager";
-			sourceTree = "<group>";
-		};
 		B507872624C4CCB900BF2EFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +246,6 @@
 			children = (
 				B507872E24C4D66A00BF2EFF /* User Location Manager */,
 				B507872B24C4CD6F00BF2EFF /* User Default Manager */,
-				B507872124C4CB1E00BF2EFF /* Router Manager */,
 				B507871C24C4C94A00BF2EFF /* MVVM */,
 				B58DDDBB24C4717800DA0E34 /* DTO */,
 				B58DDDCE24C4768400DA0E34 /* NetworkManager */,
@@ -535,7 +524,6 @@
 				B58DDDDE24C4772C00DA0E34 /* ParameterEncoder.swift in Sources */,
 				B58DDDE724C4BA5A00DA0E34 /* Meta.swift in Sources */,
 				B58DDD9724C46AE200DA0E34 /* AppDelegate.swift in Sources */,
-				B507872324C4CB2A00BF2EFF /* RouterManager.swift in Sources */,
 				B58DDDCB24C4763400DA0E34 /* InAPPError.swift in Sources */,
 				B58DDDD624C476D700DA0E34 /* URLRequestExecuter.swift in Sources */,
 				B58DDDCD24C4766000DA0E34 /* ErrorManager.swift in Sources */,
