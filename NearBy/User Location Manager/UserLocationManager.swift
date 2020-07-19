@@ -14,7 +14,7 @@ protocol UserLocationManagerDelegate: class {
 }
 
 class UserLocationManager: NSObject {
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     var delegate: UserLocationManagerDelegate? = nil
     
     override init() {
@@ -24,8 +24,25 @@ class UserLocationManager: NSObject {
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = LocationAccuracy.nearestTenMeters.value()
+        }
+    }
+    
+    func startUpdatingLocation(locationData: LocationData) {
+        switch locationData {
+        case .oneTime:
+            self.locationManager.requestLocation()
+        case .realtime:
             self.locationManager.startUpdatingLocation()
         }
+    }
+    
+    func stopUpdatingLocation() {
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    enum LocationData {
+        case oneTime
+        case realtime
     }
     
     private enum LocationAccuracy {
@@ -58,7 +75,6 @@ class UserLocationManager: NSObject {
 extension UserLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
         self.delegate?.userLocationUpdate(latitude: locValue.latitude, longitude: locValue.longitude)
     }
     
@@ -71,11 +87,9 @@ extension UserLocationManager: CLLocationManagerDelegate {
         case .authorizedAlways:
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = LocationAccuracy.nearestTenMeters.value()
-            self.locationManager.startUpdatingLocation()
         case .authorizedWhenInUse:
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = LocationAccuracy.nearestTenMeters.value()
-            self.locationManager.startUpdatingLocation()
         case .denied:
             break
         case .notDetermined:

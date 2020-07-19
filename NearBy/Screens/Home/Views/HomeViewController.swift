@@ -21,25 +21,51 @@ class HomeViewController: BaseUIViewController {
         self.userLocationManager.delegate = self
         self.title = "Home"
         self.isRealtime = UserDefaultManager.shared.get(for: .isRealtime, defaultValue: true)
-        if self.isRealtime {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(self.didClickChangeStatusModeBtn(_:)))
-        } else {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Realtime", style: .plain, target: self, action: #selector(self.didClickChangeStatusModeBtn(_:)))
-        }
-        
+        self.updateNavigationItem()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.isRealtime {
+            self.userLocationManager.startUpdatingLocation(locationData: .realtime)
+        } else {
+            self.userLocationManager.startUpdatingLocation(locationData: .oneTime)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.userLocationManager.stopUpdatingLocation()
     }
     
     // MARK:- Actions
     @objc
     func didClickChangeStatusModeBtn(_ button: UIBarButtonItem) {
+        self.userLocationManager.stopUpdatingLocation()
         if self.isRealtime {
-            
+            UserDefaultManager.shared.set(false, for: .isRealtime)
+            self.didClickOnRealtimeBtn()
         } else {
-            
+            UserDefaultManager.shared.set(true, for: .isRealtime)
+            self.didClickOnRefreshBtn()
+        }
+        self.isRealtime.toggle()
+        self.updateNavigationItem()
+    }
+    
+    func didClickOnRealtimeBtn() {
+        self.userLocationManager.startUpdatingLocation(locationData: .oneTime)
+    }
+    
+    func didClickOnRefreshBtn() {
+        self.userLocationManager.startUpdatingLocation(locationData: .realtime)
+    }
+    
+    func updateNavigationItem() {
+        if self.isRealtime {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(self.didClickChangeStatusModeBtn(_:)))
+        } else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Realtime", style: .plain, target: self, action: #selector(self.didClickChangeStatusModeBtn(_:)))
         }
     }
 }

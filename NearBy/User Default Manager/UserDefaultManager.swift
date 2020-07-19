@@ -83,6 +83,7 @@ class UserDefaultManager: NSObject {
 enum UserDefaultsKey: String, CaseIterable {
     
     case isRealtime
+    case dbInit
     
     static var excludedCases: [UserDefaultsKey] = []
     
